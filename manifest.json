@@ -1,0 +1,29 @@
+
+{
+  "short_name": "LinkedIn Post Gen",
+  "name": "LinkedIn IT Recruiter Post Generator",
+  "description": "An AI-powered application to generate, refine, and schedule LinkedIn posts for IT recruiters. It provides content ideas, a chatbot for editing, and publication reminders to maintain an active professional presence.",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    },
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#f3f4f6"
+}

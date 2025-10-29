@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface NotificationPermissionBannerProps {
@@ -13,13 +14,13 @@ export const NotificationPermissionBanner: React.FC<NotificationPermissionBanner
           <div className="flex items-center justify-between flex-wrap">
             <div className="w-0 flex-1 flex items-center">
               <span className="flex p-2 rounded-lg bg-indigo-800">
-                <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <svg className="h-6 w-6 text-white" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
               </span>
               <p className="ml-3 font-medium text-white truncate">
-                <span className="md:hidden">Abilita notifiche promemoria?</span>
-                <span className="hidden md:inline">Vuoi ricevere una notifica sul PC quando è ora di pubblicare un nuovo post?</span>
+                <span className="md:hidden">Abilita i promemoria?</span>
+                <span className="hidden md:inline">Ricevi un promemoria ogni 3 giorni per mantenere il tuo profilo sempre attivo!</span>
               </p>
             </div>
             <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">

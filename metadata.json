@@ -1,5 +1,7 @@
 {
   "name": "LinkedIn IT Recruiter Post Generator",
   "description": "An AI-powered application to generate, refine, and schedule LinkedIn posts for IT recruiters. It provides content ideas, a chatbot for editing, and publication reminders to maintain an active professional presence.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "microphone"
+  ]
 }

@@ -6,6 +6,10 @@ const REMINDER_INTERVAL_MS = 3 * 24 * 60 * 60 * 1000; // 3 days
 
 type NotificationPermission = 'default' | 'granted' | 'denied';
 
+interface UsePublicationReminderProps {
+  proactiveDraftsReady: boolean;
+}
+
 interface UsePublicationReminderReturn {
   permission: NotificationPermission;
   requestPermission: () => Promise<void>;
@@ -14,7 +18,7 @@ interface UsePublicationReminderReturn {
   dismissPermissionRequest: () => void;
 }
 
-export const usePublicationReminder = (): UsePublicationReminderReturn => {
+export const usePublicationReminder = ({ proactiveDraftsReady }: UsePublicationReminderProps): UsePublicationReminderReturn => {
   const [permission, setPermission] = useState<NotificationPermission>('default');
   const [shouldAskPermission, setShouldAskPermission] = useState(false);
 
@@ -35,9 +39,16 @@ export const usePublicationReminder = (): UsePublicationReminderReturn => {
       if (lastPublishedStr) {
         const lastPublished = parseInt(lastPublishedStr, 10);
         if (Date.now() - lastPublished > REMINDER_INTERVAL_MS) {
-          new Notification('È ora di brillare su LinkedIn!', {
-            body: 'Sono passati 3 giorni. Genera un nuovo post per mantenere attivo il tuo profilo!',
-            icon: '/vite.svg', // Optional: add an icon
+          const title = proactiveDraftsReady 
+            ? 'I tuoi post sono pronti!' 
+            : 'È ora di brillare su LinkedIn!';
+          const body = proactiveDraftsReady
+            ? 'Ho generato delle bozze per te. Dagli un\'occhiata e scegli la migliore!'
+            : 'Sono passati 3 giorni. Genera un nuovo post per mantenere attivo il tuo profilo!';
+
+          new Notification(title, {
+            body: body,
+            icon: '/vite.svg',
           }).onclick = () => {
              window.focus();
           };
@@ -49,7 +60,7 @@ export const usePublicationReminder = (): UsePublicationReminderReturn => {
          localStorage.setItem(STORAGE_KEY, Date.now().toString());
       }
     }
-  }, [permission]);
+  }, [permission, proactiveDraftsReady]);
 
   const requestPermission = useCallback(async () => {
     if ('Notification' in window) {
